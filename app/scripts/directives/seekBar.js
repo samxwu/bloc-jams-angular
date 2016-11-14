@@ -14,7 +14,7 @@
         return {
             templateUrl: '/templates/directives/seek_bar.html',
             replace: true,
-            restrict: 'E',
+            restrict: 'E', 
             scope: {},
             link: function(scope, element, attributes) {
                 scope.value = 0;
@@ -33,6 +33,10 @@
                     return {width: percentString()};
                 };
                 
+                scope.thumbStyle = function() {
+                    return {left: percentString()};
+                };
+                
                 scope.onClickSeekBar = function(event) {
                     var percent = calculatePercent(seekBar, event);
                     scope.value = percent * scope.max;
@@ -45,6 +49,7 @@
                     scope.$apply(function() {
                         scope.value = percent * scope.max;
                     });
+                        
                     });
  
                 $document.bind('mouseup.thumb', function() {
