@@ -16,7 +16,7 @@
             replace: true,
             restrict: 'E', 
             scope: {
-                onChange: '&'
+                    onChange: '&'
                 },
             link: function(scope, element, attributes) {
                 scope.value = 0;
@@ -24,13 +24,11 @@
                 
                 var seekBar = $(element);
                 
-                
-                // Tracks changes for scope.value 
                 attributes.$observe('value', function(newValue) {
                     scope.value = newValue;
                 });
  
-                // Tracks changes for scope.max
+                
                 attributes.$observe('max', function(newValue) {
                     scope.max = newValue;
                 });
@@ -77,7 +75,7 @@
                 
                 var notifyOnChange = function(newValue) {
                     if (typeof scope.onChange === 'function') {
-                        scope.onChange({value: newValue});
+                        scope.onChange({value: newValue});                        
                     }
                 };
                 
